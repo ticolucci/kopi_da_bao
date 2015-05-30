@@ -12,7 +12,6 @@ table
     - @features.each do |feature|
       tr
         td = feature.name
-        td = link_to 'Show', feature
         td = link_to 'Edit', edit_feature_path(feature)
         td = link_to 'Destroy', feature, data: {:confirm => 'Are you sure?'}, :method => :delete
 

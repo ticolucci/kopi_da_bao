@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    title KopiDaBao
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+
+body
+
+  header
+    h1 Kopi DaBao =)
+    nav
+      ul
+        li= link_to 'Drinks', drinks_path
+        li= link_to 'Features', features_path
+
+  = yield
