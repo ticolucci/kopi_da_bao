@@ -1,0 +1,22 @@
+= form_for @order do |f|
+  - if @order.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@order.errors.count, "error")} prohibited this order from being saved:"
+      ul
+        - @order.errors.full_messages.each do |message|
+          li = message
+
+  .order-items
+    | Order Items
+    ul
+      = f.fields_for :order_items do |oi_form|
+        li
+          strong Drink:
+          = oi_form.select :drink_id, options_for_select(@drinks.map {|d| [d.name, d.id]}, @drinks.index(oi_form.object.drink))
+        li
+          strong Features:
+          - Feature.all.each do |feature|
+            = oi_form.label feature.name, for: "order_order_items_attributes_#{oi_form.index}_feature_ids_#{feature.id}"
+            = oi_form.check_box :feature_ids, {:multiple => true}, feature.id, nil
+
+  .actions = f.submit

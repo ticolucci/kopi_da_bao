@@ -12,6 +12,6 @@
 
   .field
     - @features.each do |feature|
-      = f.label feature.name
-      = f.check_box :feature_ids, {:multiple => true}, feature.id
+      = f.label feature.name, for: "drink_feature_ids_#{feature.id}"
+      = f.check_box :feature_ids, {:multiple => true}, feature.id, nil
   .actions = f.submit

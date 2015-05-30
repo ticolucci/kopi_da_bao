@@ -59,6 +59,6 @@ class DrinksController < ApplicationController
     end
 
     def drink_params
-      params.require(:drink).permit(:name, :feature_ids)
+      params.require(:drink).permit(:name, feature_ids: [])
     end
 end

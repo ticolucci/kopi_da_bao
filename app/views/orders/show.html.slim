@@ -1,0 +1,16 @@
+p#notice = notice
+
+strong Order Items:
+- @order.order_items.each do |order_item|
+  p
+    strong Drink:
+    = order_item.drink.name
+
+  p
+    strong Features:
+    - order_item.features.each do |feature|
+      .feature= feature.name
+
+= link_to 'Edit', edit_order_path(@order)
+'|
+= link_to 'Back', orders_path
