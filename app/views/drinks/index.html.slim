@@ -1,0 +1,21 @@
+h1 Listing drinks
+
+table
+  thead
+    tr
+      th Name
+      th
+      th
+      th
+
+  tbody
+    - @drinks.each do |drink|
+      tr
+        td = drink.name
+        td = link_to 'Show', drink
+        td = link_to 'Edit', edit_drink_path(drink)
+        td = link_to 'Destroy', drink, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Drink', new_drink_path
